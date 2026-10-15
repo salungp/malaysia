@@ -724,8 +724,8 @@ svg.i.sm{width:15px;height:15px}
 .layout{max-width:1240px;margin:0 auto;display:grid;grid-template-columns:1fr;gap:0}
 .sidenav{display:none}
 main{padding:20px 16px 110px;min-width:0}
-.bottomnav{position:fixed;left:0;right:0;bottom:0;z-index:30;background:rgba(255,255,255,.96);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-top:1px solid var(--line);display:grid;grid-template-columns:repeat(7,1fr);padding:4px 4px calc(4px + env(safe-area-inset-bottom))}
-.navlink{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;min-height:52px;border-radius:12px;text-decoration:none;color:var(--muted);font-size:10.5px;font-weight:600;white-space:nowrap}
+.bottomnav{position:fixed;left:0;right:0;bottom:0;z-index:30;background:rgba(255,255,255,.96);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-top:1px solid var(--line);display:grid;grid-template-columns:repeat(5,1fr);padding:4px 4px calc(4px + env(safe-area-inset-bottom))}
+.navlink{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;min-height:52px;border-radius:12px;text-decoration:none;color:var(--muted);font-size:11.5px;font-weight:600;white-space:nowrap;border:0;background:none;cursor:pointer;font-family:inherit}
 .navlink[aria-current="page"]{color:var(--ink);background:var(--surface-2)}
 @media (min-width:960px){
   .layout{grid-template-columns:232px 1fr;gap:28px;padding:0 16px}
@@ -1104,6 +1104,167 @@ dialog.sheet[open]{display:flex}
 .big3d.undo{background:#fff;color:var(--ink);border:2px solid var(--line-2);box-shadow:0 4px 0 var(--line-2)}
 details.facts-d summary{cursor:pointer;font-weight:600;min-height:40px;display:flex;align-items:center}
 
+
+/* ===== Mobile adaptation ===== */
+button,a,summary,.chip,.node{touch-action:manipulation;-webkit-tap-highlight-color:transparent}
+.day-bar{position:sticky;top:var(--tb,64px);z-index:12;background:var(--bg);margin:0 -16px;padding:8px 16px;border-bottom:1px solid transparent}
+.day-bar .chips{scroll-padding-inline:16px;-webkit-mask-image:linear-gradient(90deg,#000 calc(100% - 28px),transparent);mask-image:linear-gradient(90deg,#000 calc(100% - 28px),transparent)}
+.day-bar .chip svg{width:14px;height:14px}
+@media (min-width:1000px){.day-bar{position:static;margin:0;padding:0}.day-bar .chips{-webkit-mask-image:none;mask-image:none;flex-wrap:wrap}}
+.day-nav{display:flex;gap:10px;justify-content:space-between;width:100%;margin-top:28px}
+.day-nav .btn{flex:1;min-height:52px;white-space:normal;text-align:left;justify-content:flex-start;line-height:1.25}
+.day-nav .btn.primary{justify-content:center;text-align:center;flex:2}
+.day-sub{font-size:13px;color:var(--muted);margin-top:4px;display:flex;align-items:baseline;gap:6px}
+.day-sub .dest-dot{flex:none;transform:translateY(-1px)}
+.dest-dot{width:8px;height:8px;border-radius:50%;background:var(--a);display:inline-block}
+.menu-list{gap:4px}
+.menu-item{display:flex;align-items:center;gap:14px;padding:14px 12px;border-radius:14px;text-decoration:none;color:var(--ink);min-height:64px}
+.menu-item:active,.menu-item:hover{background:var(--surface-2)}
+.menu-item>svg:first-child{width:22px;height:22px}
+.menu-item>svg:last-child{transform:rotate(-90deg);color:var(--muted);margin-left:auto}
+.menu-item span{display:flex;flex-direction:column;gap:2px}
+.menu-item b{font-size:16px;font-weight:600}
+.menu-item small{font-size:13px;color:var(--muted)}
+.dlg-extra{display:flex;gap:6px;margin-right:auto}
+details.opt{padding:0;gap:0}
+details.opt>summary{list-style:none;cursor:pointer;padding:14px;display:flex;flex-wrap:nowrap;gap:10px;align-items:flex-start;justify-content:space-between;min-height:56px}
+details.opt>summary .grow{flex:1;min-width:0;display:block}
+details.opt>summary::-webkit-details-marker,.legend-card>summary::-webkit-details-marker{display:none}
+details.opt>summary .chev,.legend-card>summary .chev{flex:none;margin-top:2px;color:var(--muted)}
+details.opt[open]>summary .chev,.legend-card[open]>summary .chev{transform:rotate(180deg)}
+details.opt>summary h4{font-size:15px}
+.opt-peek{display:block;font-size:13px;color:var(--muted);margin-top:6px}
+details.opt[open] .opt-peek{display:none}
+.opt-body{display:flex;flex-direction:column;gap:12px;padding:0 14px 14px}
+.legend-card>summary{list-style:none;display:flex;align-items:center;justify-content:space-between;gap:10px;cursor:pointer;min-height:28px}
+.leaflet-control-attribution{font-size:9px!important;line-height:1.3!important;max-width:70%;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.leaflet-touch .leaflet-bar a{width:36px;height:36px;line-height:36px}
+@media (max-width:639px){
+  body{font-size:15px}
+  .input,.select,.textarea,.inline-select{font-size:16px}
+  .topbar-in{padding:8px 12px;gap:8px}
+  .brand-mark{width:30px;height:30px;font-size:12px}
+  .brand b{font-size:15px}
+  .brand small{font-size:11.5px}
+  .toddler-switch{padding:4px 6px 4px 10px;font-size:13px;gap:8px}
+  main{padding:14px 16px calc(96px + env(safe-area-inset-bottom))}
+  h1{font-size:26px}
+  .route-head{gap:10px}
+  .route-head .xp{max-width:none;flex-basis:100%}
+  #map{height:clamp(240px,40vh,320px)}
+  .map-note{font-size:11.5px;padding:8px 12px}
+  .nodes{gap:20px}
+  .node-label{max-width:230px}
+  .toolbar .row.end{flex-wrap:nowrap;gap:8px}
+  .toolbar .row.end>.row:first-child{flex:1;min-width:0}
+  .toolbar .row.end>.row:first-child label{display:none}
+  .toolbar .row.end>.row:first-child select{flex:1;min-width:0;width:100%}
+  .tb-icon{width:40px;padding:0}
+  .tb-icon .lbl{display:none}
+  .toolbar .row.end>.row:last-child{flex-wrap:nowrap;gap:6px}
+  .day-head{padding:14px}
+  .day-num{width:46px}
+  .day-num b{font-size:20px}
+  .day-meta{gap:0;background:var(--surface-2);border-radius:12px;padding:4px 12px}
+  .day-meta div{background:none;border-radius:0;padding:8px 0;display:grid;grid-template-columns:110px 1fr;gap:10px;border-top:1px solid var(--line)}
+  .day-meta div:first-child{border-top:0}
+  .day-meta dd{margin:0;font-size:14px}
+  .kv{grid-template-columns:1fr;gap:0;background:var(--surface-2);border-radius:12px;padding:2px 12px}
+  .kv div{background:none;border-radius:0;padding:9px 0;display:grid;grid-template-columns:120px 1fr;gap:10px;align-items:baseline;border-top:1px solid var(--line)}
+  .kv div:first-child{border-top:0}
+  .kv dd{margin:0}
+  .tt-ref{flex-wrap:nowrap;padding:10px 12px;gap:10px}
+  .tt-ref .tt-ico{width:34px;height:34px}
+  .tt-ref .grow{flex-basis:auto}
+  .tt-ref b{font-size:13px}
+  .tt-ref .ctx{font-size:12px;display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .tt-ref .url{white-space:nowrap;overflow:hidden;text-overflow:ellipsis;font-size:11px}
+  .tt-ref .btn{width:auto!important;flex:none;padding:0 12px}
+  dialog:not(.sheet){margin:auto 0 0;width:100vw;max-width:100vw;border-radius:22px 22px 0 0;max-height:92dvh}
+  dialog:not(.sheet)[open]{animation:sheetUp .3s var(--ease-out)}
+  .dlg-foot{padding-bottom:calc(14px + env(safe-area-inset-bottom))}
+  .dlg-foot .btn{flex:1}
+  .dlg-foot .dlg-extra{flex-basis:100%;margin:0 0 4px}
+  .dlg-foot .dlg-extra .btn{flex:0 0 auto}
+  .dlg-foot .dlg-extra .btn.danger{margin-left:auto}
+  .gal-nav{display:none}
+  .card-pad{padding:16px}
+  .fields.three{grid-template-columns:1fr}
+}
+@media (max-width:639px) and (orientation:landscape){
+  #map{height:62vh}
+  .gal-track{max-height:58dvh}
+}
+@media (hover:hover){ .menu-item:hover{background:var(--surface-2)} }
+@media (hover:none){ .node:hover{filter:none} }
+
+
+/* ===== Apple-style polish ===== */
+h1{letter-spacing:-0.022em;font-feature-settings:"ss01"}
+h2,.unit-band b,.sheet-band h2{letter-spacing:-0.012em}
+.eyebrow,.sub,.unit-band small,.sheet-band small{letter-spacing:.07em}
+.xp b,.act-time,.time-pill,.gal-count,.node-label .seq,.pin span{font-variant-numeric:tabular-nums}
+.topbar{background:rgba(250,247,242,.72);-webkit-backdrop-filter:saturate(180%) blur(20px);backdrop-filter:saturate(180%) blur(20px);border-bottom-color:rgba(20,33,61,.08)}
+.bottomnav{background:rgba(255,255,255,.72);-webkit-backdrop-filter:saturate(180%) blur(20px);backdrop-filter:saturate(180%) blur(20px);border-top:1px solid rgba(255,255,255,.5);box-shadow:0 -1px 0 rgba(20,33,61,.08)}
+.day-bar{background:rgba(250,247,242,.78);-webkit-backdrop-filter:saturate(180%) blur(16px);backdrop-filter:saturate(180%) blur(16px)}
+.navlink{transition:transform .1s ease-out,background .15s,color .15s}
+.navlink:active,.chip:active,.unit-btn:active,.menu-item:active{transform:scale(.95)}
+.chip{transition:transform .1s ease-out,background .2s,color .2s,border-color .2s}
+.navlink[aria-current="page"] svg{stroke-width:2.2}
+.btn:active{transform:scale(.97);transition-duration:.08s}
+/* sheets */
+dialog::backdrop{background:rgba(20,33,61,calc(.42 * var(--dim,1)))}
+.sheet-grab{display:none}
+@media (max-width:639px){
+  dialog{will-change:transform;box-shadow:0 -8px 40px -12px rgba(20,33,61,.35)}
+  dialog .sheet-grab{display:block;position:absolute;top:7px;left:50%;width:38px;height:5px;margin-left:-19px;border-radius:3px;background:rgba(20,33,61,.22);z-index:6;pointer-events:none}
+  dialog.sheet .sheet-grab{background:rgba(255,255,255,.85);box-shadow:0 1px 3px rgba(0,0,0,.25)}
+  dialog.menu-sheet .sheet-grab,dialog:not(.sheet) .sheet-grab{background:rgba(20,33,61,.22);box-shadow:none}
+  .sheet-band,.dlg-head{touch-action:none}
+  dialog:not(.sheet) .dlg-head{padding-top:22px}
+  dialog.menu-sheet .dlg-head{padding-top:22px}
+  .gal-track{touch-action:pan-x}
+  dialog.dragging{transition:none!important}
+  dialog.dragging *{pointer-events:none}
+}
+.gal-slide{background-size:cover;background-position:center;background-color:#1b2338}
+.gal-slide img{opacity:0;transition:opacity .35s ease}
+.gal-slide img.on{opacity:1}
+.gal.zoom .gal-slide{background-image:none!important}
+@media (prefers-reduced-transparency: reduce){
+  .topbar{background:var(--bg);backdrop-filter:none;-webkit-backdrop-filter:none}
+  .bottomnav{background:#fff;backdrop-filter:none;-webkit-backdrop-filter:none}
+  .day-bar{background:var(--bg);backdrop-filter:none;-webkit-backdrop-filter:none}
+}
+@media (prefers-contrast: more){
+  .topbar,.bottomnav,.day-bar{background:#fff;border-color:var(--ink)}
+  .muted,.small.muted,.node-label>span{color:var(--ink-2)}
+}
+@media (prefers-reduced-motion: reduce){
+  .gal-slide img{opacity:1}
+  .navlink:active,.chip:active,.btn:active{transform:none}
+}
+
+
+/* ===== Sheet: one scroll area (photo + title + info), sticky title, pinned CTA ===== */
+dialog.sheet{display:none}
+dialog.sheet[open]{display:flex;flex-direction:column}
+.sheet-scroll{flex:1 1 auto;min-height:0;overflow-y:auto;overscroll-behavior:contain;-webkit-overflow-scrolling:touch}
+.sheet-scroll .sheet-band{padding-right:68px}
+.sheet .sheet-scroll .dlg-body{overflow:visible;flex:none}
+.sheet-scroll .sheet-band{position:sticky;top:0;z-index:3}
+.sheet-x.on-photo{position:absolute;top:12px;right:12px;z-index:5}
+.sheet-scroll .gal-track{aspect-ratio:3/2;max-height:44dvh}
+@media (max-width:639px){ .sheet-scroll .gal-track{aspect-ratio:4/3;max-height:48dvh} .sheet-band,.dlg-head{touch-action:auto} .gal-track{touch-action:pan-x pan-y} }
+.sheet-scroll::-webkit-scrollbar{width:0;height:0}
+
+
+/* ===== Monochrome, low-distraction basemap ===== */
+#map{background:#f1f1f0}
+.tiles-mono{filter:grayscale(1)}
+.tiles-osm{filter:grayscale(1) contrast(.85) brightness(1.08)}
+.tiles-ref{filter:grayscale(1) contrast(.9);opacity:.85}
+
 /* ---------- print ---------- */
 .print-only{display:none}
 @media print{
@@ -1164,6 +1325,7 @@ details.facts-d summary{cursor:pointer;font-weight:600;min-height:40px;display:f
     <symbol id="i-star" viewBox="0 0 24 24"><path d="m12 3 2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1-4.4-4.3 6.1-.9z"/></symbol>
     <symbol id="i-bag" viewBox="0 0 24 24"><path d="M5 8h14l-1 13H6z"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/></symbol>
     <symbol id="i-flag" viewBox="0 0 24 24"><path d="M5 21V4M5 4h11l-2 4 2 4H5"/></symbol>
+    <symbol id="i-grid" viewBox="0 0 24 24"><rect x="4" y="4" width="6.5" height="6.5" rx="1.5"/><rect x="13.5" y="4" width="6.5" height="6.5" rx="1.5"/><rect x="4" y="13.5" width="6.5" height="6.5" rx="1.5"/><rect x="13.5" y="13.5" width="6.5" height="6.5" rx="1.5"/></symbol>
     <symbol id="i-expand" viewBox="0 0 24 24"><path d="m7 15 5 5 5-5M7 9l5-5 5 5"/></symbol>
   </defs>
 </svg>
@@ -1511,10 +1673,73 @@ function openDialog(title, body, foot, onSubmit){
     <div class="dlg-body">${body}</div>
     <div class="dlg-foot">${foot}</div></form>`;
   dlgSubmit=onSubmit||null;
-  dlg.showModal();
+  presentDialog();
   const first=dlg.querySelector(".dlg-body input:not([type=checkbox]),.dlg-body textarea,.dlg-body select"); if(first) first.focus();
 }
-function closeDialog(){ if(dlg.open) dlg.close(); }
+function closeDialog(instant){
+  if(!dlg.open) return;
+  if(instant || !sheetMode() || reduceMotion()){ dlg.style.transform=""; dlg.close(); return; }
+  sheetSpring(dlg.offsetHeight+24, 0, ()=>{ dlg.close(); dlg.style.transform=""; });
+}
+/* ---------- Sheet physics (Apple-style: 1:1 drag, velocity hand-off, momentum projection) ---------- */
+const reduceMotion=()=>matchMedia("(prefers-reduced-motion: reduce)").matches;
+const sheetMode=()=>matchMedia("(max-width:639px)").matches;
+let sheetY=0, sheetAnim=0;
+function setSheetY(y){ sheetY=y; dlg.style.transform=y?`translate3d(0,${y}px,0)`:""; const h=dlg.offsetHeight||1; dlg.style.setProperty("--dim", Math.max(0,1-Math.max(0,y)/h).toFixed(3)); }
+function sheetSpring(target, v0, done){
+  // critically damped spring: damping 1.0, response 0.3s (sheet), starts from the live value + release velocity
+  cancelAnimationFrame(sheetAnim);
+  const k=Math.pow(2*Math.PI/0.32,2), c=2*Math.sqrt(k); let x=sheetY, v=v0, last=performance.now();
+  const step=t=>{ const dt=Math.min(0.032,(t-last)/1000); last=t;
+    const a=-k*(x-target)-c*v; v+=a*dt; x+=v*dt; setSheetY(x);
+    if((target>0 && x>=dlg.offsetHeight) || (Math.abs(x-target)<0.5 && Math.abs(v)<20)){ setSheetY(target); if(done) done(); return; }
+    sheetAnim=requestAnimationFrame(step); };
+  sheetAnim=requestAnimationFrame(step);
+}
+const rubber=(o,d,c=0.55)=>(o*d*c)/(d+c*Math.abs(o));
+const project=(v,d=0.998)=>(v/1000)*d/(1-d);
+function presentDialog(){
+  cancelAnimationFrame(sheetAnim); setSheetY(0);
+  if(!dlg.querySelector(":scope > .sheet-grab")) dlg.insertAdjacentHTML("afterbegin",`<span class="sheet-grab" aria-hidden="true"></span>`);
+  if(!dlg.open) dlg.showModal();
+}
+(function(){
+  // Touch drag-to-dismiss that cooperates with scrolling: the sheet only follows the finger
+  // when its content is scrolled to the very top and the finger moves down (iOS sheet behaviour).
+  let st=null;
+  const scroller=()=>dlg.querySelector(".sheet-scroll")||dlg.querySelector(".dlg-body");
+  dlg.addEventListener("touchstart",e=>{
+    if(!dlg.open || !sheetMode() || e.touches.length!==1 || dlg.querySelector(".gal.zoom") || e.target.closest("input,select,textarea")) { st=null; return; }
+    cancelAnimationFrame(sheetAnim);
+    const t=e.touches[0]; const sc=scroller(); const inFoot=!!e.target.closest(".dlg-foot");
+    st={x0:t.clientX,y0:t.clientY,base:sheetY,axis:null,hist:[{y:t.clientY,t:e.timeStamp}],gal:!!e.target.closest(".gal-track"),
+        top:inFoot||!sc||sc.scrollTop<=0,grabbing:false};
+  },{passive:true});
+  dlg.addEventListener("touchmove",e=>{
+    if(!st) return; const t=e.touches[0]; const dx=t.clientX-st.x0, dy=t.clientY-st.y0;
+    if(!st.axis){ if(Math.hypot(dx,dy)<10) return;           // hysteresis before committing to a direction
+      st.axis=Math.abs(dy)>Math.abs(dx)?"y":"x";
+      const sc=scroller(); const atTop=st.top && (!sc||sc.scrollTop<=0);
+      if(st.axis!=="y" || dy<0 || !atTop){ st=null; return; } // let the browser scroll / swipe the gallery
+      st.grabbing=true; dlg.classList.add("dragging"); }
+    if(!st.grabbing) return;
+    e.preventDefault();                                        // we own this gesture now
+    const raw=st.base+dy, h=dlg.offsetHeight;
+    setSheetY(raw<0 ? rubber(raw,h) : raw);
+    st.hist.push({y:t.clientY,t:e.timeStamp}); if(st.hist.length>6) st.hist.shift();
+  },{passive:false});
+  const end=e=>{
+    if(!st) return; const s0=st; st=null; if(!s0.grabbing) return;
+    dlg.classList.remove("dragging"); dlg._suppressClick=true; setTimeout(()=>{ dlg._suppressClick=false; },350);
+    const h=s0.hist, a=h[0], b=h[h.length-1], dt=Math.max(1,b.t-a.t), v=(b.y-a.y)/dt*1000;
+    const H=dlg.offsetHeight, landing=sheetY+project(v);
+    if(e.type!=="touchcancel" && (landing>H*0.45 || v>900)) sheetSpring(H+24, v, ()=>{ dlg.close(); setSheetY(0); });
+    else sheetSpring(0, v);
+  };
+  dlg.addEventListener("touchend",end); dlg.addEventListener("touchcancel",end);
+  dlg.addEventListener("click",e=>{ if(dlg._suppressClick){ e.stopPropagation(); e.preventDefault(); dlg._suppressClick=false; } },true);
+  dlg.addEventListener("cancel",e=>{ if(sheetMode() && !reduceMotion()){ e.preventDefault(); closeDialog(); } });
+})();
 dlg.addEventListener("close",()=>{ if(dlgResolve){ const r=dlgResolve; dlgResolve=null; r(false);} dlgSubmit=null; if(lastFocus && document.contains(lastFocus)) lastFocus.focus(); });
 dlg.addEventListener("submit",e=>{
   e.preventDefault();
@@ -1522,7 +1747,7 @@ dlg.addEventListener("submit",e=>{
   if(sub && sub.value==="ok-confirm"){ const r=dlgResolve; dlgResolve=null; closeDialog(); if(r) r(true); return; }
   if(dlgSubmit){ const ok=dlgSubmit(new FormData(e.target), e.target); if(ok!==false) closeDialog(); }
 });
-dlg.addEventListener("click",e=>{ if(e.target===dlg) closeDialog(); });
+dlg.addEventListener("click",e=>{ if(e.target===dlg && !sheetY) closeDialog(); });
 function confirmBox(title,msg,okLabel){
   return new Promise(res=>{
     openDialog(title, `<div class="callout red">${icon("alert")}<div class="grow">${esc(msg)}</div></div>`,
@@ -1548,7 +1773,9 @@ function renderNav(){
   const v=currentView();
   $("#sidenav").innerHTML = NAV.map(n=>`<a class="navlink" href="#${n.id}" ${n.id===v?'aria-current="page"':""}>${icon(n.i)}<span>${n.l}</span></a>`).join("") +
     `<p class="note">Informasi transportasi dapat berubah. Verifikasi jadwal dan operasional sebelum berangkat.</p>`;
-  $("#bottomnav").innerHTML = NAV.map(n=>`<a class="navlink" href="#${n.id}" ${n.id===v?'aria-current="page"':""}>${icon(n.i)}<span>${n.s}</span></a>`).join("");
+  const MAIN=["route","itinerary","transport","prep"], more=!MAIN.includes(v);
+  $("#bottomnav").innerHTML = NAV.filter(n=>MAIN.includes(n.id)).map(n=>`<a class="navlink" href="#${n.id}" ${n.id===v?'aria-current="page"':""}>${icon(n.i)}<span>${n.s}</span></a>`).join("")+
+    `<button type="button" class="navlink" data-action="more" ${more?'aria-current="page"':""} aria-haspopup="dialog">${icon("grid")}<span>${more?esc(NAV.find(n=>n.id===v).s):"Lainnya"}</span></button>`;
 }
 function render(keepScroll){
   const v=currentView();
@@ -1561,6 +1788,7 @@ function render(keepScroll){
   if(map){ try{ map.remove(); }catch(e){} map=null; }
   $("#main").innerHTML = `<div class="view stack">${html}</div>`;
   if(v==="route") initMap();
+  document.documentElement.style.setProperty("--tb", tbH()+"px");
   document.title = (NAV.find(n=>n.id===v).l)+" · Malaysia Trip 2026";
   if(keepScroll) window.scrollTo(0,y);
 }
@@ -1753,9 +1981,9 @@ function viewItinerary(){
         ${filtering?`<button type="button" class="btn sm ghost" data-action="clear-filters">Hapus filter</button>`:""}
       </div>
       <div class="row" style="gap:8px">
-        <button type="button" class="btn sm" data-action="expand-all">${icon("expand","sm")}Buka semua</button>
-        <button type="button" class="btn sm" data-action="collapse-all">Tutup semua</button>
-        <button type="button" class="btn sm" data-action="print">${icon("print","sm")}Cetak</button>
+        <button type="button" class="btn sm tb-icon" data-action="expand-all" aria-label="Buka semua">${icon("expand","sm")}<span class="lbl">Buka semua</span></button>
+        <button type="button" class="btn sm tb-icon" data-action="collapse-all" aria-label="Tutup semua">${icon("up","sm")}<span class="lbl">Tutup semua</span></button>
+        <button type="button" class="btn sm tb-icon" data-action="print" aria-label="Cetak">${icon("print","sm")}<span class="lbl">Cetak</span></button>
         <button type="button" class="btn sm primary" data-action="add-day">${icon("plus","sm")}Tambah hari</button>
       </div>
     </div>
@@ -1774,7 +2002,7 @@ function dayCard(d,i){
     <div class="day-head" role="button" tabindex="0" aria-expanded="${open}" aria-controls="db-${d.id}" data-action="toggle-day" data-id="${d.id}">
       <div class="day-num"><small>Hari</small><b>${i+1}</b></div>
       <div class="day-title"><h3 id="dt-${d.id}">${esc(d.title||"Tanpa judul")}</h3>
-        <div class="row"><span class="badge dest-badge">${esc(ds.name)}</span><span class="badge ${d.date?"b-walk":"b-gray"}">${icon("cal","sm")}${esc(dateLabel)}</span><span class="badge b-walk">${done}/${d.activities.length} selesai</span>${fri?`<span class="badge b-red">${icon("alert","sm")}Jumat</span>`:""}</div>
+        <p class="day-sub"><span class="dest-dot"></span><span>${esc(ds.name)} · ${esc(d.date?fmtDate(d.date,{weekday:"short",day:"numeric",month:"short"}):"Tanggal belum diisi")} · ${done}/${d.activities.length} selesai</span></p>${fri?`<span class="badge b-red" style="margin-top:6px">${icon("alert","sm")}Jumat</span>`:""}
       </div>
       <svg class="i chev" aria-hidden="true"><use href="#i-chev"/></svg>
     </div>
@@ -1792,9 +2020,6 @@ function dayCard(d,i){
       <div class="row no-print">
         <button type="button" class="btn sm primary" data-action="add-act" data-id="${d.id}">${icon("plus","sm")}Tambah aktivitas</button>
         <button type="button" class="btn sm" data-action="edit-day" data-id="${d.id}">${icon("edit","sm")}Edit hari</button>
-        <button type="button" class="btn sm icon" data-action="day-up" data-id="${d.id}" aria-label="Pindahkan hari ke atas" ${i===0?"disabled":""}>${icon("up","sm")}</button>
-        <button type="button" class="btn sm icon" data-action="day-down" data-id="${d.id}" aria-label="Pindahkan hari ke bawah" ${i===state.days.length-1?"disabled":""}>${icon("down","sm")}</button>
-        <button type="button" class="btn sm danger" data-action="del-day" data-id="${d.id}">${icon("trash","sm")}Hapus hari</button>
       </div>
     </div></div></div>
   </article>`;
@@ -1930,8 +2155,10 @@ function resolvePlace(p){ const m=/^\{hotel:(\w+)\}$/.exec(p); if(!m) return {q:
 function routeOpt(o){
   const a=resolvePlace(o.maps[0]), b=resolvePlace(o.maps[1]);
   const needHotel = (!a.ok?a:(!b.ok?b:null));
-  return `<div class="opt ${o.tags.includes("rec")?"rec":""}">
-    <div class="opt-head"><h4>${esc(o.name)}</h4><div class="row" style="gap:6px">${o.tags.map(t=>`<span class="badge ${TAGLBL[t][0]}">${TAGLBL[t][1]}</span>`).join("")}${statusBadge(o.status)}</div></div>
+  const rec=o.tags.includes("rec");
+  return `<details class="opt ${rec?"rec":""}" ${rec?"open":""}>
+    <summary class="opt-head"><span class="grow"><h4>${esc(o.name)}</h4><span class="row" style="gap:6px;margin-top:6px">${o.tags.map(t=>`<span class="badge ${TAGLBL[t][0]}">${TAGLBL[t][1]}</span>`).join("")}${statusBadge(o.status)}</span><span class="opt-peek">${esc(o.time)}</span></span>${icon("chev","chev")}</summary>
+    <div class="opt-body">
     <ol class="steps">${o.steps.map(s=>`<li><span>${esc(s)}</span></li>`).join("")}</ol>
     <dl class="kv">
       <div><dt>Titik transit</dt><dd>${esc(o.transfer)}</dd></div>
@@ -1945,7 +2172,7 @@ function routeOpt(o){
       ${o.book?ext(o.book.u,icon("ext","sm")+"Pesan / cek: "+esc(o.book.l),"sm"):""}
     </div>
     ${o.src&&o.src.length?`<p class="src">${srcLinks(o.src.map(k=>SRC[k])).replace(" · ","")}</p>`:""}
-  </div>`;
+  </div></details>`;
 }
 function viewTransport(){
   const g=state.genting;
@@ -1953,8 +2180,9 @@ function viewTransport(){
   return `<div class="section-title"><div><p class="eyebrow">Antarkota & bandara</p><h1>Transportasi</h1></div></div>
   <div class="callout gray">${icon("info")}<div class="grow">Informasi transportasi dapat berubah. Verifikasi jadwal dan operasional sebelum berangkat. Semua waktu & jarak di sini adalah <b>perkiraan</b>, bukan data real-time.</div></div>
 
-  <section class="card card-pad" aria-labelledby="lgT">
-    <h2 id="lgT" style="margin-bottom:10px">Arti label</h2>
+  <details class="card card-pad legend-card">
+    <summary><h2 id="lgT">Arti label & istilah</h2>${icon("chev","chev")}</summary>
+    <div style="margin-top:12px">
     <div class="legend">
       <span class="badge b-green">HIJAU · Rekomendasi</span><span class="badge b-blue">BIRU · Transportasi umum</span><span class="badge b-orange">ORANYE · Grab / alternatif</span><span class="badge b-red">MERAH · Peringatan penting</span><span class="badge b-gray">ABU-ABU · Perlu verifikasi</span>
     </div>
@@ -1967,7 +2195,8 @@ function viewTransport(){
         <div><b>Rapid Penang</b> — bus umum di Penang.</div><div><b>CAT</b> — bus gratis di zona heritage George Town.</div>
       </div>
     </details>
-  </section>
+    </div>
+  </details>
 
   ${missing.length?`<div class="callout orange">${icon("hotel")}<div class="grow"><b>Lengkapi Lokasi Hotel</b> — ${esc(missing.map(d=>d.name).join(", "))}. Rute dari/ke hotel baru bisa dibuat setelah alamat diisi.</div><a class="btn sm" href="#home" data-action="focus-hotel" data-id="${missing[0].id}">Isi alamat</a></div>`:""}
 
@@ -2120,6 +2349,7 @@ function dayForm(d){
       <div class="field"><label for="fd-tr">Transportasi</label><input class="input" id="fd-tr" name="transport" value="${esc(d.transport)}"></div>
     </div>
     <div class="field"><label for="fd-n">Catatan penting</label><textarea class="textarea" id="fd-n" name="notes">${esc(d.notes)}</textarea></div>`,
+    (isNew?"":`<div class="dlg-extra"><button type="button" class="btn sm icon" data-action="day-up" data-id="${d.id}" aria-label="Pindahkan hari ke atas" ${state.days[0]===d?"disabled":""}>${icon("up","sm")}</button><button type="button" class="btn sm icon" data-action="day-down" data-id="${d.id}" aria-label="Pindahkan hari ke bawah" ${state.days[state.days.length-1]===d?"disabled":""}>${icon("down","sm")}</button><button type="button" class="btn sm danger" data-action="del-day" data-id="${d.id}">${icon("trash","sm")}Hapus</button></div>`)+
     `<button type="button" class="btn" data-action="dlg-close">Batal</button><button type="submit" class="btn primary">${isNew?"Tambah":"Simpan"}</button>`,
     (fd)=>{
       const title=(fd.get("title")||"").toString().trim();
@@ -2240,15 +2470,21 @@ document.addEventListener("click",async e=>{
     case "gal-prev": case "gal-next": { const g=el.closest(".gal"); galGo(g,(+g.dataset.i||0)+(a==="gal-next"?1:-1)); break; }
     case "gal-go": { const g=el.closest(".gal"); galGo(g,+el.dataset.i); break; }
     case "gal-zoom": { const g=el.closest(".gal"); const i=+g.dataset.i||0; g.classList.toggle("zoom"); requestAnimationFrame(()=>galGo(g,i,true)); break; }
-    case "fly": closeDialog(); setTimeout(()=>flyTo(id),60); break;
+    case "more": {
+      lastFocus=el; dlg.className="sheet menu-sheet"; dlgSubmit=null;
+      dlg.innerHTML=`<div class="dlg-head"><h2 id="dlgTitle">Lainnya</h2><button type="button" class="btn ghost icon" data-action="dlg-close" aria-label="Tutup">${icon("x")}</button></div>
+        <div class="dlg-body menu-list">${[["home","Ringkasan & hotel","Info trip, tanggal, alamat hotel, tautan cepat"],["tiktok","Referensi TikTok","Semua 7 video, per destinasi"],["settings","Pengaturan & backup","Cetak/PDF, ekspor-impor, reset"]].map(([id,t,d])=>{const n=NAV.find(x=>x.id===id);return `<a class="menu-item" href="#${id}" data-action="dlg-close-go">${icon(n.i)}<span><b>${t}</b><small>${d}</small></span>${icon("chev")}</a>`;}).join("")}</div>`;
+      presentDialog(); break; }
+    case "fly": closeDialog(true); setTimeout(()=>flyTo(id),60); break;
     case "sheet-done": { const f=findAct(id); f.act.done=!f.act.done; if(f.act.done) justDone=id; save(); closeDialog();
       if(currentView()==="route") refreshRoute(); else render(true);
-      if(f.act.done){ const s=stats(); toast(s.done===s.acts?"Semua aktivitas selesai! 🎉":`Mantap! ${s.done}/${s.acts} selesai.`); }
+      if(f.act.done){ try{ navigator.vibrate && navigator.vibrate(12); }catch(_){} const s=stats(); toast(s.done===s.acts?"Semua aktivitas selesai! 🎉":`Mantap! ${s.done}/${s.acts} selesai.`); }
       const nb=$(`.node[data-id="${id}"]`); if(nb) nb.focus({preventScroll:true}); break; }
-    case "map-day": setRouteDay(id);
-      if(el.classList.contains("unit-btn")){ const m=$("#map"); if(m) m.scrollIntoView({behavior:"smooth",block:"center"}); } break;
-    case "edit-from-sheet": e.preventDefault(); closeDialog(); location.hash="itinerary"; setTimeout(()=>{ const f=findAct(id); if(f){ state.ui.open[id]=true; render(true); actForm(f.act);} },120); break;
-    case "dlg-close-go": closeDialog(); break;
+    case "map-day": setRouteDay(id,true,!!el.dataset.scroll);
+      break;
+    case "show-map": { if(routeDay!==id) setRouteDay(id); const m=$("#mapCol"); if(m) window.scrollTo({top:m.getBoundingClientRect().top+scrollY-tbH()-64,behavior:"smooth"}); break; }
+    case "edit-from-sheet": e.preventDefault(); closeDialog(true); location.hash="itinerary"; setTimeout(()=>{ const f=findAct(id); if(f){ state.ui.open[id]=true; render(true); actForm(f.act);} },120); break;
+    case "dlg-close-go": closeDialog(true); break;
     case "print": doPrint(); break;
     case "export": doExport(); break;
     case "import": $("#importFile").click(); break;
@@ -2354,13 +2590,15 @@ function viewRoute(){
     <div><p class="eyebrow">Malaysia Trip 2026</p><h1>Jalur perjalanan</h1></div>
     <div class="xp" aria-label="${s.done} dari ${s.acts} aktivitas selesai"><div class="progress"><span style="width:${s.acts?Math.round(s.done/s.acts*100):0}%"></span></div><b>${s.done}/${s.acts}</b></div>
   </div>
+  <div class="day-bar">
+    <div class="chips map-chips" role="group" aria-label="Pilih hari">
+      <button type="button" class="chip" data-action="map-day" data-id="all" aria-pressed="${routeDay==="all"}">Semua</button>
+      ${state.days.map((d,i)=>{const dn=d.activities.length&&d.activities.every(a=>a.done);return `<button type="button" class="chip" data-action="map-day" data-id="${d.id}" aria-pressed="${routeDay===d.id}">${dn?icon("check","sm"):""}H${i+1} · ${esc(dest(d.dest).short)}</button>`;}).join("")}
+    </div>
+  </div>
   <div class="route-wrap">
-    <section class="map-col" aria-label="Peta">
+    <section class="map-col" aria-label="Peta" id="mapCol">
       <div class="map-card card">
-        <div class="chips map-chips" role="group" aria-label="Tampilkan hari di peta">
-          <button type="button" class="chip" data-action="map-day" data-id="all" aria-pressed="${routeDay==="all"}">Semua</button>
-          ${state.days.map((d,i)=>`<button type="button" class="chip" data-action="map-day" data-id="${d.id}" aria-pressed="${routeDay===d.id}">H${i+1} · ${esc(dest(d.dest).short)}</button>`).join("")}
-        </div>
         <div id="map" role="region" aria-label="Peta interaktif lokasi itinerary"></div>
         <p class="map-note">${icon("info","sm")}<span>Titik = lokasi perkiraan. Garis putus-putus = urutan kunjungan, bukan rute jalan. Untuk navigasi pakai tombol Google Maps.</span></p>
       </div>
@@ -2368,10 +2606,14 @@ function viewRoute(){
     <section class="path-col" id="pathCol" aria-label="Jalur aktivitas">${pathHtml()}</section>
   </div>`;
 }
+function dayShown(d){ return routeDay==="all" || !routeDay || (routeDay.startsWith("dest:") ? d.dest===routeDay.slice(5) : routeDay===d.id); }
 function pathHtml(){
   const cur=currentActId(), seq=seqMap(); let html="", n=0, prev=null;
+  const shown=state.days.filter(dayShown);
   state.days.forEach((d,di)=>{
+    if(!dayShown(d)) return;
     const ds=dest(d.dest);
+    prev = di>0 ? state.days[di-1].dest : null;
     if(prev && prev!==d.dest){
       const key=PAIR[prev+">"+d.dest]; const a=dest(prev);
       html+=`<div class="node-li transfer-li" style="--x:0px"><button type="button" class="node transfer" data-action="transfer" data-from="${prev}" data-to="${d.dest}" ${key?"":"data-nokey"} aria-label="Perjalanan ${esc(a.name)} ke ${esc(ds.name)} — lihat pilihan transportasi">${icon("bus")}</button><span class="node-label"><b>${esc(a.short)} → ${esc(ds.short)}</b><span>Pindah kota · lihat transportasi</span></span></div>`;
@@ -2380,12 +2622,12 @@ function pathHtml(){
     const done=d.activities.filter(a=>a.done).length;
     html+=`<div class="unit c-${ds.color}" id="unit-${d.id}">
       <div class="unit-band"><div class="grow"><small>Hari ${di+1} · ${esc(ds.name)}</small><b>${esc(d.title)}</b><span>${d.date?esc(fmtDate(d.date,{weekday:"long",day:"numeric",month:"long"})):"Tanggal belum ditentukan"} · ${done}/${d.activities.length} selesai</span></div>
-        <button type="button" class="unit-btn" data-action="map-day" data-id="${d.id}" aria-label="Tampilkan hari ${di+1} di peta">${icon("pin")}</button></div>
+        <button type="button" class="unit-btn" data-action="show-map" data-id="${d.id}" aria-label="Lihat hari ${di+1} di peta">${icon("pin")}</button></div>
       ${d.notes?`<p class="unit-note">${esc(d.notes)}</p>`:""}
       <ol class="nodes">`;
     if(!d.activities.length) html+=`<li class="node-li" style="--x:0px"><span class="node-label"><span>Belum ada aktivitas.</span></span></li>`;
     d.activities.forEach(a=>{
-      const off=OFFS[n%OFFS.length]; n++;
+      const off=OFFS[(seq[a.id]-1)%OFFS.length]; n++;
       const st=a.done?"done":(a.id===cur?"current":"todo");
       const warn=(a.warns||[]).some(w=>w.type==="red");
       html+=`<li class="node-li ${st}" style="--x:${off}px">
@@ -2397,6 +2639,15 @@ function pathHtml(){
     html+=`</ol></div>`;
   });
   const s=stats();
+  const last=shown[shown.length-1], first=shown[0];
+  if(routeDay!=="all" && shown.length){
+    const iF=state.days.indexOf(first), iL=state.days.indexOf(last);
+    const pv=state.days[iF-1], nx=state.days[iL+1];
+    if(nx || pv){
+      html+=`<nav class="day-nav" aria-label="Pindah hari">${pv?`<button type="button" class="btn" data-action="map-day" data-id="${pv.id}" data-scroll="1">${icon("up","sm")}Hari ${iF}</button>`:"<span></span>"}${nx?`<button type="button" class="btn primary" data-action="map-day" data-id="${nx.id}" data-scroll="1">Lanjut Hari ${iL+2}: ${esc(nx.title)}</button>`:""}</nav>`;
+      justDone=null; return html;
+    }
+  }
   html+=`<div class="node-li" style="--x:0px"><span class="node finish ${s.done===s.acts&&s.acts?"done":""}" aria-hidden="true">${icon("flag")}</span><span class="node-label"><b>${s.done===s.acts&&s.acts?"Trip selesai!":"Garis finish"}</b><span>${s.done}/${s.acts} aktivitas</span></span></div>`;
   justDone=null;
   return html;
@@ -2408,17 +2659,23 @@ function initMap(){
   if(map){ try{ map.remove(); }catch(e){} map=null; }
   clusterLayer=null;
   if(typeof L==="undefined"){ el.innerHTML=`<div class="empty" style="margin:12px">Peta tidak bisa dimuat. Jalur di bawah tetap bisa dipakai.</div>`; return; }
-  map=L.map(el,{zoomControl:true,scrollWheelZoom:window.matchMedia("(pointer:fine)").matches,attributionControl:true});
-  // Esri World Street Map — no API key needed. Falls back to OpenStreetMap if Esri fails.
+  map=L.map(el,{maxZoom:19,minZoom:5,zoomControl:!matchMedia("(pointer:coarse)").matches,scrollWheelZoom:window.matchMedia("(pointer:fine)").matches,attributionControl:true});
+  // Minimal monochrome basemap: Esri Light Gray Canvas (no API key).
+  // Base has no labels; the reference layer (big place names only) shows only when zoomed out (≤12),
+  // so street and small neighbourhood names never appear.
   let tileErr=0, usingOsm=false;
-  const esri=L.tileLayer("https://server.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer/tile/{z}/{y}/{x}",{maxZoom:19,attribution:'Tiles &copy; Esri &mdash; Esri, HERE, Garmin, &copy; <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener noreferrer">OpenStreetMap</a>'}).addTo(map);
-  esri.on("tileerror",()=>{ if(usingOsm || ++tileErr<4) return; usingOsm=true; map.removeLayer(esri);
-    L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png",{maxZoom:19,attribution:'&copy; <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener noreferrer">OpenStreetMap</a>'}).addTo(map); });
+  const ESRI="https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/";
+  const attr='Tiles &copy; Esri &mdash; Esri, HERE, Garmin, &copy; <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener noreferrer">OpenStreetMap</a>';
+  const base=L.tileLayer(ESRI+"World_Light_Gray_Base/MapServer/tile/{z}/{y}/{x}",{maxNativeZoom:16,maxZoom:19,attribution:attr,className:"tiles-mono"}).addTo(map);
+  L.tileLayer(ESRI+"World_Light_Gray_Reference/MapServer/tile/{z}/{y}/{x}",{maxNativeZoom:16,maxZoom:12,className:"tiles-mono tiles-ref"}).addTo(map);
+  base.on("tileerror",()=>{ if(usingOsm || ++tileErr<4) return; usingOsm=true; map.removeLayer(base);
+    L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png",{maxZoom:19,className:"tiles-mono tiles-osm",attribution:'&copy; <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener noreferrer">OpenStreetMap</a>'}).addTo(map); });
   mapLayer=L.layerGroup().addTo(map);
   map.on("moveend",()=>{ mapView={c:map.getCenter(),z:map.getZoom()}; });
   map.on("zoomend",renderClusters); map.on("moveend",()=>requestAnimationFrame(layoutLabels));
-  drawMarkers(!mapView);
-  if(mapView) map.setView(mapView.c,mapView.z,{animate:false});
+  const doFit=!mapView;
+  if(mapView) map.setView(mapView.c,mapView.z,{animate:false}); else map.setView([3.6,101.5],7,{animate:false});
+  drawMarkers(doFit);
   setTimeout(()=>map && map.invalidateSize(),50);
 }
 const HEX={green:"#21734F",blue:"#2559A0",purple:"#5E3FA8",amber:"#9A5B08",rose:"#A3324F"};
@@ -2483,7 +2740,7 @@ function drawMarkers(fit){
 let dayItems=[], clusterLayer=null;
 function shortName(n){ return String(n).replace(/\s*\(.*?\)\s*/g," ").trim(); }
 function renderClusters(){
-  if(!map) return;
+  if(!map || !map._loaded) return;
   if(!clusterLayer) clusterLayer=L.layerGroup().addTo(map); else if(!map.hasLayer(clusterLayer)) clusterLayer.addTo(map);
   clusterLayer.clearLayers(); markerById={};
   if(routeDay==="all") return;
@@ -2516,10 +2773,14 @@ function flyTo(id){
   map.flyTo(f.act.ll,16,{duration:.8});
   setTimeout(()=>{ const m=markerById[id]; if(m) m.openPopup(); },850);
 }
-function setRouteDay(id,fit){
+function setRouteDay(id,fit,scrollTop){
   routeDay=id; $$(".map-chips .chip").forEach(c=>c.setAttribute("aria-pressed",String(c.dataset.id===id)));
+  const chip=$(`.map-chips .chip[data-id="${id}"]`); if(chip) chip.scrollIntoView({inline:"center",block:"nearest",behavior:"smooth"});
+  const pc=$("#pathCol"); if(pc) pc.innerHTML=pathHtml();
   drawMarkers(fit!==false);
+  if(scrollTop){ const top=($("#mapCol")||pc).getBoundingClientRect().top+scrollY-tbH()-56; if(scrollY>top) window.scrollTo({top,behavior:matchMedia("(prefers-reduced-motion: reduce)").matches?"auto":"smooth"}); }
 }
+function tbH(){ const t=document.querySelector(".topbar"); return t?t.offsetHeight:64; }
 function refreshRoute(){
   const pc=$("#pathCol"); if(pc) pc.innerHTML=pathHtml();
   const s=stats(); const xp=$(".xp"); if(xp){ xp.querySelector("span").style.width=(s.acts?Math.round(s.done/s.acts*100):0)+"%"; xp.querySelector("b").textContent=`${s.done}/${s.acts}`; }
@@ -2529,7 +2790,7 @@ function refreshRoute(){
 /* ---------- galeri foto ---------- */
 function galleryHtml(g,name){
   return `<div class="gal" role="region" aria-roledescription="carousel" aria-label="Foto ${esc(name)}">
-    <div class="gal-track" tabindex="0">${g.map((x,i)=>`<figure class="gal-slide" aria-label="Foto ${i+1} dari ${g.length}"><img src="${esc(x.src)}" ${x.srcset?`srcset="${esc(x.srcset)}" sizes="(max-width:640px) 100vw, 560px"`:""} alt="${esc(name)} — foto ${i+1}" ${i?'loading="lazy"':'fetchpriority="high"'} decoding="async" data-action="gal-zoom"></figure>`).join("")}</div>
+    <div class="gal-track" tabindex="0">${g.map((x,i)=>`<figure class="gal-slide" aria-label="Foto ${i+1} dari ${g.length}" style="background-image:url('${esc(x.thumb)}')"><img onload="this.classList.add('on')" src="${esc(x.src)}" ${x.srcset?`srcset="${esc(x.srcset)}" sizes="(max-width:640px) 100vw, 560px"`:""} alt="${esc(name)} — foto ${i+1}" ${i?'loading="lazy"':'fetchpriority="high"'} decoding="async" data-action="gal-zoom"></figure>`).join("")}</div>
     ${g.length>1?`<button type="button" class="gal-nav prev" data-action="gal-prev" aria-label="Foto sebelumnya">${icon("chev")}</button><button type="button" class="gal-nav next" data-action="gal-next" aria-label="Foto berikutnya">${icon("chev")}</button>`:""}
     <div class="gal-foot"><div class="gal-dots">${g.length>1?g.map((_,i)=>`<button type="button" class="gal-dot" data-action="gal-go" data-i="${i}" aria-label="Foto ${i+1}" ${i?"":'aria-current="true"'}></button>`).join(""):""}</div>
       <span class="gal-count">1/${g.length}</span>${g[0].page?`<a class="gal-credit" href="${esc(g[0].page)}" target="_blank" rel="noopener noreferrer">Wikimedia Commons</a>`:""}</div>
@@ -2559,8 +2820,8 @@ function openSheet(id){
   lastFocus=document.activeElement;
   dlg.className="sheet c-"+ds.color;
   const gal=galleryFor(a), ph=gal.length;
-  dlg.innerHTML=`${gal.length?galleryHtml(gal,a.name):""}<div class="sheet-band"><div class="grow"><small>Hari ${state.days.indexOf(d)+1} · ${esc(ds.name)}</small><h2 id="dlgTitle">${seq[a.id]}. ${esc(a.name)}</h2></div>
-      <button type="button" class="btn icon sheet-x ${gal.length?"on-photo":""}" data-action="dlg-close" aria-label="Tutup">${icon("x")}</button></div>
+  dlg.innerHTML=`<div class="sheet-scroll">${gal.length?galleryHtml(gal,a.name):""}<div class="sheet-band"><div class="grow"><small>Hari ${state.days.indexOf(d)+1} · ${esc(ds.name)}</small><h2 id="dlgTitle">${seq[a.id]}. ${esc(a.name)}</h2></div>
+      <button type="button" class="btn icon sheet-x on-photo" data-action="dlg-close" aria-label="Tutup">${icon("x")}</button></div>
     <div class="dlg-body">
       <div class="row" style="gap:6px">
         <span class="badge b-walk">${icon("clock","sm")}${esc(a.time||"Fleksibel")}</span>${a.duration?`<span class="badge b-walk">${esc(a.duration)}</span>`:""}${trChips(a.transport)}
@@ -2584,11 +2845,11 @@ function openSheet(id){
         <a class="btn sm ghost" href="#itinerary" data-action="edit-from-sheet" data-id="${a.id}">${icon("edit","sm")}Edit</a>
       </div>
     </div>
-    <div class="dlg-foot sheet-foot">
+    </div><div class="dlg-foot sheet-foot">
       <button type="button" class="btn big3d ${a.done?"undo":""}" data-action="sheet-done" data-id="${a.id}">${a.done?"Batalkan selesai":icon("check")+"Tandai selesai"}</button>
     </div>`;
   dlgSubmit=null;
-  dlg.showModal();
+  presentDialog();
   initGallery(dlg.querySelector(".gal"));
   const b=dlg.querySelector('[data-action="sheet-done"]'); if(b) b.focus();
 }
@@ -2596,11 +2857,11 @@ function transferSheet(from,to){
   const key=PAIR[from+">"+to], r=ROUTES.find(x=>x.id===key), a=dest(from), b=dest(to);
   lastFocus=document.activeElement;
   dlg.className="sheet c-amber";
-  dlg.innerHTML=`<div class="sheet-band"><div class="grow"><small>Pindah kota</small><h2 id="dlgTitle">${esc(a.name)} → ${esc(b.name)}</h2></div><button type="button" class="btn icon sheet-x" data-action="dlg-close" aria-label="Tutup">${icon("x")}</button></div>
+  dlg.innerHTML=`<div class="sheet-scroll"><div class="sheet-band"><div class="grow"><small>Pindah kota</small><h2 id="dlgTitle">${esc(a.name)} → ${esc(b.name)}</h2></div><button type="button" class="btn icon sheet-x on-photo" data-action="dlg-close" aria-label="Tutup">${icon("x")}</button></div>
     <div class="dlg-body">${r?`${r.warn?`<div class="callout red">${icon("alert")}<div class="grow">${esc(r.warn)}</div></div>`:""}${r.opts.map(routeOpt).join("")}`
       :`<div class="callout gray">${icon("info")}<div class="grow">Belum ada panduan untuk rute ini. Jadwal dan harga perlu dicek sebelum pemesanan.</div></div>`}</div>
-    <div class="dlg-foot"><a class="btn" href="#transport" data-action="dlg-close-go">Semua transportasi</a><button type="button" class="btn primary" data-action="dlg-close">Tutup</button></div>`;
-  dlgSubmit=null; dlg.showModal();
+    </div><div class="dlg-foot"><a class="btn" href="#transport" data-action="dlg-close-go">Semua transportasi</a><button type="button" class="btn primary" data-action="dlg-close">Tutup</button></div>`;
+  dlgSubmit=null; presentDialog();
 }
 
 /* init */
